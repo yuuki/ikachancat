@@ -8,7 +8,7 @@ import (
 	"github.com/jessevdk/go-flags"
 )
 
-const version = "0.0.1"
+const version = "0.1.0"
 
 type opts struct {
 	Host    string `short:"H" long:"host" required:"true" value-name:"hostname" description:"ikachan hostname"`
