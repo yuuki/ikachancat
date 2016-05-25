@@ -2,31 +2,31 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
 	"strings"
 	"time"
-	"net/http"
-	"net/url"
 )
 
 type IkachanCat struct {
-	host		string
-	port		string
-	channel		string
-	msgType		string
-	queue		*StreamQ
-	shutdown	chan os.Signal
+	host     string
+	port     string
+	channel  string
+	msgType  string
+	queue    *StreamQ
+	shutdown chan os.Signal
 }
 
 func newIkachanCat(host, port, channel, msgType string) *IkachanCat {
 	ic := &IkachanCat{
-		host:		host,
-		port:		port,
-		queue:		newStreamQ(),
-		shutdown:	make(chan os.Signal, 1),
-		channel:	channel,
-		msgType:	msgType,
+		host:     host,
+		port:     port,
+		queue:    newStreamQ(),
+		shutdown: make(chan os.Signal, 1),
+		channel:  channel,
+		msgType:  msgType,
 	}
 
 	signal.Notify(ic.shutdown, os.Interrupt)
@@ -89,4 +89,3 @@ func (ic *IkachanCat) postMsg(msglines []string) error {
 
 	return nil
 }
-

@@ -11,11 +11,11 @@ import (
 const version = "0.0.1"
 
 type opts struct {
-	Host   string `short:"H" long:"host" required:"true" value-name:"hostname" description:"ikachan hostname"`
-	Port   string `short:"p" long:"port" value-name:"port" default:"4979" description:"ikachan port"`
-	Channel   string `short:"c" long:"channel" required:"true" value-name:"'#channel'" description:"destination channel"`
-	MsgType   string `short:"t" long:"type" value-name:"msgtype" default:"notice" description:"message type notice/privmsg)"`
-	Stream bool `short:"s" long:"stream" description:"messages to Ikachan continuously"`
+	Host    string `short:"H" long:"host" required:"true" value-name:"hostname" description:"ikachan hostname"`
+	Port    string `short:"p" long:"port" value-name:"port" default:"4979" description:"ikachan port"`
+	Channel string `short:"c" long:"channel" required:"true" value-name:"'#channel'" description:"destination channel"`
+	MsgType string `short:"t" long:"type" value-name:"msgtype" default:"notice" description:"message type notice/privmsg)"`
+	Stream  bool   `short:"s" long:"stream" description:"messages to Ikachan continuously"`
 }
 
 func readIn(lines chan string) {
