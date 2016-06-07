@@ -33,7 +33,7 @@ func main() {
 	p.Usage = "--host HOSTNAME --channel '#CHANNEL' [--port=PORT] [--type=MSGTYPE] \n\nVerion: " + version
 	_, err := p.ParseArgs(os.Args)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%s\n", err)
+		p.WriteHelp(os.Stderr)
 		os.Exit(-1)
 	}
 
