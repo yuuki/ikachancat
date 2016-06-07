@@ -2,8 +2,8 @@
 
 set -e
 
-DOCKER_IMAGE_NAME="droot-build"
-DOCKER_CONTAINER_NAME="droot-build-container"
+DOCKER_IMAGE_NAME="ikachancat-build"
+DOCKER_CONTAINER_NAME="ikachancat-build-container"
 
 if [[ $(docker ps -a | grep $DOCKER_CONTAINER_NAME) != "" ]]; then
   docker rm -f $DOCKER_CONTAINER_NAME 2>/dev/null
@@ -17,4 +17,4 @@ if [[ "$@" == *"clean"* ]] && [[ -d bin ]]; then
   rm -Rf bin
 fi
 
-docker cp $DOCKER_CONTAINER_NAME:/go/src/github.com/yuuki/droot/droot .
+docker cp $DOCKER_CONTAINER_NAME:/go/src/github.com/yuuki/ikachancat/ikachancat .
